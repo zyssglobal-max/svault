@@ -10,4 +10,4 @@ Elementos: enlaces · notas · TOTP
 
 ### 🧮 Vista previa
 
-<img src="assets/img/preview-app.jpg" alt="n-tree-app" width="100%"/>
+<img src="assets/img/preview-auth.jpg" alt="n-tree-app" width="100%"/>
