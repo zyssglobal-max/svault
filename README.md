@@ -6,7 +6,7 @@ Bóveda cifrada SecureVault ...
 ```text
 Cifrado: AES-256-GCM
 Derivación: PBKDF2-SHA256 · 300.000 iteraciones
-Ubicación: Almacenamienavegador de la app
+Ubicación: Almacenamiento de la app
 Elementos: enlaces · notas · TOTP
 ```
 
