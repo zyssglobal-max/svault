@@ -1,14 +1,44 @@
 [
   {
-    "titulo": "Nuevo artículo",
-    "fecha": "2026-10-20",
-    "categoria": "Privacidad",
-    "contenido": "<h2>Título de sección</h2><p>Tu contenido aquí...</p>"
+    "titulo": "Cómo detectar un mensaje falso de tu banco en 2026",
+    "fecha": "15 OCT 2026",
+    "categoria": "ANTI-PHISHING",
+    "contenido": "<h3>🚩 La regla de oro</h3><p>Tu banco NUNCA te enviará un SMS o WhatsApp con un enlace para 'verificar tu cuenta', 'desbloquear acceso' o 'confirmar un pago'. Si lo recibes, es una estafa.</p><h3>🔍 3 señales de alerta</h3><ul><li>Te urgen a actuar YA ('su cuenta será bloqueada en 1 hora')</li><li>El enlace tiene errores: <code>banco-secure.com</code> en vez de <code>bancosecure.com</code></li><li>Te piden tu clave completa o código de la tarjeta</li></ul><h3>✅ Qué hacer</h3><p>Cuelga, borra el mensaje y llama tú mismo al número oficial que aparece en el reverso de tu tarjeta o en la web oficial del banco.</p>"
   },
   {
-    "titulo": "Cómo evitar el phishing",
-    "fecha": "2026-10-15",
-    "categoria": "Seguridad",
-    "contenido": "<h2>La regla de oro</h2><p>Nunca hagas clic en enlaces sospechosos...</p>"
+    "titulo": "La verdad sobre las contraseñas que crees seguras",
+    "fecha": "12 OCT 2026",
+    "categoria": "CONTRASEÑAS",
+    "contenido": "<h3>❌ El mito de 'Tr4b@jo2026!'</h3><p>Los hackers no adivinan tu contraseña. Usan listas con los 100 millones de contraseñas más usadas del mundo. La tuya probablemente está en ella en menos de 1 segundo.</p><h3>✅ La solución real</h3><p>Usa un <strong>gestor de contraseñas</strong> como Bitwarden (gratis) o 1Password. Genera claves de 20 caracteres aleatorios y olvídate de recordarlas.</p><h3>🎯 Tu única tarea</h3><p>Proteger UNA sola contraseña: la maestra del gestor. Hazla larga (una frase de 4-5 palabras) y activa verificación en dos pasos en el gestor.</p>"
+  },
+  {
+    "titulo": "Verificación en dos pasos: tu muro impenetrable",
+    "fecha": "10 OCT 2026",
+    "categoria": "AUTENTICACIÓN",
+    "contenido": "<h3>🛡️ ¿Qué es el 2FA?</h3><p>Es una segunda llave para entrar a tus cuentas. Aunque alguien robe tu contraseña, no podrá acceder sin ese segundo código.</p><h3>📱 Las 3 formas de activarlo (de mejor a peor)</h3><ul><li><strong>App de autenticación</strong> (Aegis, Raivo, Google Authenticator): la más segura</li><li><strong>Llave física</strong> (YubiKey): nivel profesional</li><li><strong>SMS</strong>: mejor que nada, pero vulnerable a 'SIM swapping'</li></ul><h3>⚡ Actívalo HOY en</h3><p>Correo principal, banco, redes sociales y WhatsApp. Son las 4 cuentas críticas que debes proteger primero.</p>"
+  },
+  {
+    "titulo": "WiFi público: por qué tu banco no debe verlo",
+    "fecha": "08 OCT 2026",
+    "categoria": "PRIVACIDAD",
+    "contenido": "<h3>☕ El peligro del café gratis</h3><p>El WiFi del aeropuerto, cafetería o hotel NO es seguro. Cualquiera en la misma red puede interceptar lo que envías si no está cifrado.</p><h3>🚫 Nunca hagas esto en WiFi público</h3><ul><li>Entrar a tu banco</li><li>Hacer compras con tarjeta</li><li>Cambiar contraseñas</li><li>Enviar documentos sensibles</li></ul><h3>✅ La solución</h3><p>Si necesitas conectarte urgentemente, usa los <strong>datos móviles de tu teléfono</strong> como hotspot. Es mucho más seguro que cualquier WiFi público.</p>"
+  },
+  {
+    "titulo": "La llamada falsa del 'soporte técnico'",
+    "fecha": "05 OCT 2026",
+    "categoria": "ESTAFAS",
+    "contenido": "<h3>📞 El guion clásico</h3><p>Te llaman diciendo ser de Microsoft, tu banco o Amazon: 'Hemos detectado actividad sospechosa en su cuenta, necesitamos que instale un programa para ayudarle'.</p><h3>🚨 LA REGLA ABSOLUTA</h3><p><strong>NUNCA instales nada que te pidan por teléfono.</strong> Ninguna empresa legita te llamará para pedirte acceso remoto a tu computadora.</p><h3>✅ Qué hacer</h3><p>Cuelga inmediatamente. Si tienes dudas, llama tú al número oficial de la empresa. Si ya instalaste algo, desconecta el equipo de internet y llévalo a un técnico de confianza.</p>"
+  },
+  {
+    "titulo": "Actualizaciones: el 90% de los hackeos evitables",
+    "fecha": "02 OCT 2026",
+    "categoria": "MANTENIMIENTO",
+    "contenido": "<h3>🔄 ¿Por qué molestan tanto?</h3><p>Cada actualización corrige agujeros de seguridad que los hackers ya están explotando. Postergarlas es como dejar la puerta de tu casa abierta.</p><h3>📱 Actualiza SIEMPRE</h3><ul><li>Sistema operativo del teléfono (Android/iOS)</li><li>Navegador (Chrome, Firefox, Safari)</li><li>Apps bancarias y de correo</li><li>Antivirus si usas Windows</li></ul><h3>💡 Truco pro</h3><p>Activa las <strong>actualizaciones automáticas</strong> en todo. Tu equipo se protege solo mientras duermes.</p>"
+  },
+  {
+    "titulo": "Tu celular perdido: plan de emergencia en 5 minutos",
+    "fecha": "28 SEP 2026",
+    "categoria": "RESPUESTA",
+    "contenido": "<h3>🚨 Si te roban el móvil, haz ESTO en orden</h3><ol><li>Desde otro dispositivo, entra a <code>findmy.google.com</code> (Android) o <code>icloud.com/find</code> (iPhone) y marca el equipo como PERDIDO</li><li>Cambia la contraseña de tu correo principal (es la llave maestra de todo)</li><li>Llama a tu operador para bloquear la línea y la SIM</li><li>Revoca sesiones activas en Google, Apple y redes sociales</li></ol><h3>🛡️ Prevención (hazlo HOY)</h3><p>Activa el bloqueo con código/PIN en la tarjeta SIM. Así, aunque saquen tu chip y lo pongan en otro teléfono, no podrán recibir tus códigos de verificación por SMS.</p>"
   }
 ]
