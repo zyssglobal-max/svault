@@ -1,6 +1,14 @@
-{
-  "titulo": "Nuevo artículo",
-  "fecha": "2026-10-20",
-  "categoria": "Privacidad",
-  "contenido": "<h2>Título de sección</h2><p>Tu contenido aquí...</p>"
-}
+[
+  {
+    "titulo": "Nuevo artículo",
+    "fecha": "2026-10-20",
+    "categoria": "Privacidad",
+    "contenido": "<h2>Título de sección</h2><p>Tu contenido aquí...</p>"
+  },
+  {
+    "titulo": "Cómo evitar el phishing",
+    "fecha": "2026-10-15",
+    "categoria": "Seguridad",
+    "contenido": "<h2>La regla de oro</h2><p>Nunca hagas clic en enlaces sospechosos...</p>"
+  }
+]
