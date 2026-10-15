@@ -1,5 +1,5 @@
 name: Nuevo Articulo
-description: Agrega un nuevo post al blog de forma segura
+description: Agrega un nuevo post de seguridad
 title: "POST: Escribe el titulo aqui"
 labels:
   - post
