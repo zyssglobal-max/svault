@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVAULT | Seguridad Bestial</title>
-    <!-- Fuentes tecnológicas y modernas -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* === FONDO DINÁMICO CYBERPUNK === */
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Rajdhani', sans-serif;
             background-color: #050508;
             background-image: 
@@ -18,14 +15,10 @@
                 radial-gradient(circle at 85% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 25%);
             color: #e0e0e0;
             min-height: 100vh;
-            overflow-x: hidden;
         }
-
-        /* === ENCABEZADO CON EFECTO NEÓN === */
         header {
             text-align: center;
             padding: 60px 20px 40px;
-            position: relative;
         }
         header h1 {
             font-family: 'Orbitron', sans-serif;
@@ -34,10 +27,7 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 4px;
-            text-shadow: 
-                0 0 10px rgba(255, 0, 128, 0.8),
-                0 0 20px rgba(255, 0, 128, 0.5),
-                0 0 40px rgba(255, 0, 128, 0.3);
+            text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.5);
         }
         header p {
             font-size: 1.3rem;
@@ -46,8 +36,6 @@
             margin-top: 10px;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
         }
-
-        /* === CONTENEDOR PRINCIPAL === */
         main {
             max-width: 900px;
             margin: 0 auto;
@@ -56,8 +44,6 @@
             flex-direction: column;
             gap: 30px;
         }
-
-        /* === TARJETAS DE ARTÍCULOS (GLASSMORPHISM + NEÓN) === */
         article {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -65,42 +51,21 @@
             border: 1px solid rgba(255, 0, 128, 0.3);
             border-radius: 16px;
             padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
-
-        /* Efecto de brillo al pasar el mouse */
-        article::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: left 0.5s;
-        }
-        article:hover::before {
-            left: 100%;
-        }
-
         article:hover {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-5px);
             border-color: #00ffff;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(0, 255, 255, 0.2),
-                inset 0 0 20px rgba(255, 0, 128, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
         }
-
         article h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             margin: 0 0 10px 0;
             color: #fff;
         }
-        
         .meta {
             display: flex;
             gap: 15px;
@@ -113,42 +78,23 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 15px;
         }
-
         .content {
             font-size: 1.1rem;
             line-height: 1.7;
             color: #c0c0c0;
         }
-        .content h3 {
-            color: #00ffff;
-            font-family: 'Orbitron', sans-serif;
-            margin-top: 25px;
-        }
-        .content p {
-            margin-bottom: 15px;
-        }
-        .content code {
-            background: rgba(0, 255, 255, 0.1);
-            color: #00ffff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        /* === MENSAJE DE CARGA / ERROR === */
+        .content h2, .content h3 { color: #00ffff; font-family: 'Orbitron', sans-serif; margin-top: 25px; }
         .status-msg {
             text-align: center;
             padding: 40px;
             font-size: 1.2rem;
-            color: #ff0080;
             font-family: 'Orbitron', sans-serif;
+            border: 1px dashed #ff3333;
+            background: rgba(255, 0, 0, 0.05);
+            border-radius: 10px;
+            color: #ff6666;
         }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.2rem; }
-            article { padding: 20px; }
-        }
+        .status-msg small { display: block; margin-top: 15px; font-family: 'Rajdhani', sans-serif; color: #aaa; }
     </style>
 </head>
 <body>
@@ -159,67 +105,60 @@
     </header>
 
     <main id="posts-container">
-        <div class="status-msg">⏳ Cargando datos del sistema...</div>
+        <div class="status-msg">⏳ Conectando con la base de datos...</div>
     </main>
 
     <script>
-        // =====================================================================
-        // === TU BASE DE DATOS (EDITA AQUÍ PARA AGREGAR NUEVOS ARTÍCULOS) ===
-        // =====================================================================
-        const baseDeDatos = [
-            {
-                titulo: "Cómo evitar estafas por WhatsApp en 2026",
-                fecha: "15 OCT 2026",
-                categoria: "ANTI-PHISHING",
-                contenido: `
-                    <h3>🚩 La señal de alerta</h3>
-                    <p>Si recibes un mensaje de un "familiar" pidiendo dinero urgente por una cuenta nueva, <strong>NO TRANSFIERAS NADA</strong>. El 90% de estos casos son suplantación de identidad.</p>
-                    <h3>🛡️ Tu escudo de defensa</h3>
-                    <p>Activa inmediatamente la <code>Verificación en dos pasos</code> en Ajustes > Cuenta. Esto crea un muro impenetrable incluso si roban tu código SMS.</p>
-                `
-            },
-            {
-                titulo: "La verdad sobre las contraseñas 'seguras'",
-                fecha: "10 OCT 2026",
-                categoria: "CIBERSEGURIDAD",
-                contenido: `
-                    <h3>❌ El mito de "Tr4b@jo!2026"</h3>
-                    <p>Los hackers no adivinan tu contraseña, usan diccionarios de millones de combinaciones comunes. Tu cerebro no puede competir con una máquina.</p>
-                    <h3>✅ La solución bestial</h3>
-                    <p>Usa un gestor de contraseñas como <strong>Bitwarden</strong> o <strong>KeePass</strong>. Genera cadenas de 20 caracteres aleatorios y olvídate de recordarlas. Tu única tarea es proteger la contraseña maestra.</p>
-                `
-            }
-        ];
-        // =====================================================================
+        // Leemos el archivo posts.json
+        fetch('posts.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se encontró el archivo (Error ${response.status}). Verifica que se llame exactamente "posts.json" (todo en minúsculas).`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const contenedor = document.getElementById('posts-container');
+                contenedor.innerHTML = ''; // Limpiar mensaje de carga
 
-        // Función que renderiza los artículos en la pantalla
-        function cargarBlog() {
-            const contenedor = document.getElementById('posts-container');
-            
-            if (!baseDeDatos || baseDeDatos.length === 0) {
-                contenedor.innerHTML = '<div class="status-msg">⚠️ No hay datos en el sistema.</div>';
-                return;
-            }
+                // Si el usuario puso un solo objeto {} en lugar de una lista [], lo convertimos en lista para que no falle
+                const posts = Array.isArray(data) ? data : [data];
 
-            contenedor.innerHTML = ''; // Limpiar mensaje de carga
+                if (posts.length === 0) {
+                    contenedor.innerHTML = '<div class="status-msg">⚠️ La base de datos está vacía.</div>';
+                    return;
+                }
 
-            baseDeDatos.forEach(post => {
-                const articulo = document.createElement('article');
-                articulo.innerHTML = `
-                    <h2>${post.titulo}</h2>
-                    <div class="meta">
-                        <span>📅 ${post.fecha}</span>
-                        <span>|</span>
-                        <span>📁 ${post.categoria}</span>
+                // Generamos cada artículo
+                posts.forEach(post => {
+                    const articulo = document.createElement('article');
+                    articulo.innerHTML = `
+                        <h2>${post.titulo}</h2>
+                        <div class="meta">
+                            <span>📅 ${post.fecha}</span>
+                            <span>|</span>
+                            <span>📁 ${post.categoria}</span>
+                        </div>
+                        <div class="content">${post.contenido}</div>
+                    `;
+                    contenedor.appendChild(articulo);
+                });
+            })
+            .catch(error => {
+                console.error('Error detallado:', error);
+                document.getElementById('posts-container').innerHTML = `
+                    <div class="status-msg">
+                        ⚠️ ERROR AL LEER posts.json<br><br>
+                        <strong>${error.message}</strong><br><br>
+                        <small>
+                            1. ¿El archivo se llama exactamente <strong>posts.json</strong> (minúsculas, sin espacios)?<br>
+                            2. ¿Está en la <strong>misma carpeta</strong> que index.html?<br>
+                            3. ¿El JSON es válido? Debe empezar con <strong>[</strong> y terminar con <strong>]</strong>.<br>
+                            4. ¿Hiciste "Commit" de los cambios en GitHub?
+                        </small>
                     </div>
-                    <div class="content">${post.contenido}</div>
                 `;
-                contenedor.appendChild(articulo);
             });
-        }
-
-        // Ejecutar al cargar la página
-        document.addEventListener('DOMContentLoaded', cargarBlog);
     </script>
 </body>
 </html>
