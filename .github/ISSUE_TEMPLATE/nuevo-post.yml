@@ -1,6 +1,6 @@
-name: Nuevo Articulo
+Escribe: Nuevo Articulo
 description: Agrega un nuevo post de seguridad
-title: "POST: Escribe el titulo aqui"
+title: "Escribe el titulo aqui"
 labels:
   - post
 body:
