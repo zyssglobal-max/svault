@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVault | Security Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --surface: #0a0a0a;
+            --bg: #0a0a0a;
+            --bg-soft: #0f0f0f;
+            --surface: #161616;
+            --surface-hover: #1c1c1c;
             --accent: #00e0a4;
-            --accent-glow: rgba(0, 224, 164, 0.4);
-            --text: #e0e0e0;
-            --text-dim: #8a8a8a;
-            --danger: #ff4d6a;
+            --accent-soft: rgba(0, 224, 164, 0.08);
+            --accent-glow: rgba(0, 224, 164, 0.15);
+            --text: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-dim: #666;
+            --border: rgba(255, 255, 255, 0.06);
+            --radius: 16px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,288 +26,504 @@
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Share Tech Mono', monospace;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Efecto de línea de escaneo (Scanline) */
+        /* Fondo con gradiente sutil */
         body::before {
             content: "";
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
-            background-size: 100% 4px;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 224, 164, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 224, 164, 0.02) 0%, transparent 50%);
             pointer-events: none;
-            z-index: 999;
-            opacity: 0.3;
+            z-index: 0;
         }
 
         /* Contenedor principal */
-        .container {
+        .wrapper {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 24px 100px;
             position: relative;
             z-index: 1;
         }
 
-        /* Encabezado con efecto Glitch */
+        /* HEADER */
         header {
             text-align: center;
             margin-bottom: 60px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(0, 224, 164, 0.2);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), #00a37a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 224, 164, 0.25);
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #0a0a0a;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .logo-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
         }
 
         h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 10px var(--accent-glow);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: var(--text);
+            margin: 20px 0 12px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
         }
 
-        h1::before, h1::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg);
-        }
-
-        h1::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--danger);
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim 3s infinite linear alternate-reverse;
-        }
-
-        h1::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--accent);
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% { clip: rect(10px, 9999px, 31px, 0); }
-            20% { clip: rect(65px, 9999px, 89px, 0); }
-            40% { clip: rect(22px, 9999px, 15px, 0); }
-            60% { clip: rect(90px, 9999px, 95px, 0); }
-            80% { clip: rect(45px, 9999px, 60px, 0); }
-            100% { clip: rect(12px, 9999px, 80px, 0); }
+        h1 span {
+            color: var(--accent);
         }
 
         .subtitle {
-            color: var(--accent);
             font-size: 1.1rem;
-            margin-top: 10px;
-            letter-spacing: 2px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .subtitle::after {
-            content: '█';
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* Tarjetas de artículos */
-        .grid {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .card {
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid rgba(0, 224, 164, 0.3);
-            border-left: 4px solid var(--accent);
-            border-radius: 4px;
-            padding: 25px;
-            transition: all 0.3s ease;
+        /* BÚSQUEDA */
+        .search-container {
             position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.5s ease-out forwards;
+            max-width: 500px;
+            margin: 40px auto 50px;
+        }
+
+        .search-box {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 20px 16px 52px;
+            font-size: 1rem;
+            color: var(--text);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .search-box::placeholder {
+            color: var(--text-dim);
+        }
+
+        .search-box:focus {
+            border-color: rgba(0, 224, 164, 0.4);
+            background: var(--surface-hover);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-dim);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s ease;
+        }
+
+        .search-box:focus + .search-icon {
+            stroke: var(--accent);
+        }
+
+        /* GRID DE ARTÍCULOS */
+        .posts-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        /* TARJETA DE ARTÍCULO */
+        .post-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
             transform: translateY(20px);
         }
 
-        .card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow), inset 0 0 20px rgba(0, 224, 164, 0.05);
-            transform: translateY(-3px);
+        .post-card:hover {
+            border-color: rgba(0, 224, 164, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(0, 224, 164, 0.1);
         }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 224, 164, 0.1), transparent);
-            transition: left 0.5s;
+        .post-header {
+            margin-bottom: 20px;
         }
 
-        .card:hover::before { left: 100%; }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .card h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: #fff;
-            margin: 0;
-        }
-
-        .meta {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            display: flex;
-            gap: 15px;
-        }
-
-        .meta span {
+        .post-meta {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
         }
 
-        .category {
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 2px 8px;
-            border-radius: 3px;
+        .post-category {
             font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 5px 12px;
+            border-radius: 20px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .content {
-            color: #c0c0c0;
-            font-size: 1rem;
-            line-height: 1.7;
+        .post-date {
+            font-size: 0.875rem;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .content h3 {
-            color: var(--accent);
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .post-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        .post-content h3 {
+            color: var(--text);
             font-size: 1.1rem;
-            margin: 20px 0 10px 0;
-            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            margin: 24px 0 10px;
         }
 
-        .content p { margin-bottom: 12px; }
-        .content ul { margin-left: 20px; margin-bottom: 12px; }
-        .content li { margin-bottom: 5px; }
-        .content code {
-            background: rgba(0, 224, 164, 0.1);
+        .post-content p {
+            margin-bottom: 14px;
+        }
+
+        .post-content ul, .post-content ol {
+            margin: 12px 0 16px 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 6px;
+        }
+
+        .post-content strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .post-content code {
+            background: var(--accent-soft);
             color: var(--accent);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Share Tech Mono', monospace;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875em;
         }
 
-        /* Mensajes de estado / error */
-        .status-msg {
-            text-align: center;
-            padding: 40px;
-            border: 1px dashed var(--danger);
-            background: rgba(255, 77, 106, 0.05);
-            border-radius: 4px;
-            color: var(--danger);
-        }
-
+        /* ESTADOS */
         .loading {
             text-align: center;
-            padding: 40px;
-            color: var(--accent);
-            font-size: 1.2rem;
+            padding: 80px 20px;
+            color: var(--text-dim);
         }
 
-        @keyframes fadeIn {
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error {
+            text-align: center;
+            padding: 60px 30px;
+            background: var(--surface);
+            border: 1px solid rgba(255, 77, 106, 0.3);
+            border-radius: var(--radius);
+        }
+
+        .error-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            background: rgba(255, 77, 106, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #ff4d6a;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .error h3 {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .error p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .error-tips {
+            text-align: left;
+            background: var(--bg-soft);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .error-tips li {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            list-style: none;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .error-tips li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-dim);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            stroke: var(--text-dim);
+            stroke-width: 1.5;
+            fill: none;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .card-header { flex-direction: column; }
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .wrapper { padding: 40px 16px 80px; }
+            .post-card { padding: 24px; }
+            .post-title { font-size: 1.3rem; }
+            .search-box { padding: 14px 16px 14px 48px; font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
         <header>
-            <h1 data-text="SVAULT">SVAULT</h1>
-            <div class="subtitle">> INICIALIZANDO PROTOCOLO DE SEGURIDAD...</div>
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/>
+                        <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/>
+                    </svg>
+                </div>
+                <span class="logo-text">SVault</span>
+            </div>
+            <h1>Blog de <span>Seguridad</span></h1>
+            <p class="subtitle">Guías prácticas para proteger tu vida digital en 2026</p>
         </header>
 
-        <main id="posts-container" class="grid">
-            <div class="loading">[ ~ ] Conectando con la base de datos...</div>
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchInput" placeholder="Buscar artículos...">
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-3.5-3.5"/>
+            </svg>
+        </div>
+
+        <main id="posts-container" class="posts-grid">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Cargando artículos...</p>
+            </div>
         </main>
     </div>
 
     <script>
-        // Función para leer y renderizar posts.json
+        let allPosts = [];
+
+        function renderPosts(posts) {
+            const container = document.getElementById('posts-container');
+            
+            if (posts.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="7"/>
+                            <path d="m20 20-3.5-3.5"/>
+                        </svg>
+                        <h3>No se encontraron resultados</h3>
+                        <p>Intenta con otros términos de búsqueda</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = posts.map((post, index) => `
+                <article class="post-card" style="animation-delay: ${index * 0.08}s">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">${post.categoria}</span>
+                            <span class="post-date">📅 ${post.fecha}</span>
+                        </div>
+                        <h2 class="post-title">${post.titulo}</h2>
+                    </div>
+                    <div class="post-content">${post.contenido}</div>
+                </article>
+            `).join('');
+        }
+
+        function filterPosts(query) {
+            if (!query.trim()) {
+                renderPosts(allPosts);
+                return;
+            }
+
+            const q = query.toLowerCase();
+            const filtered = allPosts.filter(post => 
+                post.titulo.toLowerCase().includes(q) ||
+                post.categoria.toLowerCase().includes(q) ||
+                post.contenido.toLowerCase().includes(q)
+            );
+
+            renderPosts(filtered);
+        }
+
+        // Event listener para búsqueda
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            filterPosts(e.target.value);
+        });
+
+        // Cargar posts
         fetch('./posts.json')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}. ¿Existe el archivo posts.json?`);
+                    throw new Error(`Error HTTP: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
-                const container = document.getElementById('posts-container');
-                container.innerHTML = ''; // Limpiar mensaje de carga
-
-                // Aseguramos que sea un array (por si el JSON tiene un solo objeto)
-                const posts = Array.isArray(data) ? data : [data];
-
-                if (posts.length === 0) {
-                    container.innerHTML = '<div class="status-msg">[ ! ] La base de datos está vacía.</div>';
+                allPosts = Array.isArray(data) ? data : [data];
+                
+                if (allPosts.length === 0) {
+                    document.getElementById('posts-container').innerHTML = `
+                        <div class="empty-state">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            <h3>No hay artículos aún</h3>
+                            <p>Agrega contenido al archivo posts.json</p>
+                        </div>
+                    `;
                     return;
                 }
 
-                // Renderizar cada post con un ligero retraso para efecto de cascada
-                posts.forEach((post, index) => {
-                    const card = document.createElement('article');
-                    card.className = 'card';
-                    card.style.animationDelay = `${index * 0.1}s`; // Efecto cascada
-                    
-                    card.innerHTML = `
-                        <div class="card-header">
-                            <h2>${post.titulo}</h2>
-                            <div class="meta">
-                                <span class="category">${post.categoria}</span>
-                                <span>📅 ${post.fecha}</span>
-                            </div>
-                        </div>
-                        <div class="content">${post.contenido}</div>
-                    `;
-                    container.appendChild(card);
-                });
+                renderPosts(allPosts);
             })
             .catch(error => {
                 console.error('Error:', error);
                 document.getElementById('posts-container').innerHTML = `
-                    <div class="status-msg">
-                        [ X ] ERROR DE CONEXIÓN<br><br>
-                        <strong>${error.message}</strong><br><br>
-                        <small style="color: var(--text-dim)">
-                            1. Verifica que el archivo se llame exactamente <strong>posts.json</strong> (minúsculas).<br>
-                            2. Asegúrate de que esté en la misma carpeta que index.html.<br>
-                            3. El JSON debe empezar con <strong>[</strong> y terminar con <strong>]</strong>.
-                        </small>
+                    <div class="error">
+                        <div class="error-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3>Error al cargar los artículos</h3>
+                        <p>${error.message}</p>
+                        <ul class="error-tips">
+                            <li>Verifica que el archivo se llame exactamente <strong>posts.json</strong></li>
+                            <li>Asegúrate de que esté en la misma carpeta que index.html</li>
+                            <li>El JSON debe empezar con <strong>[</strong> y terminar con <strong>]</strong></li>
+                            <li>Revisa la consola del navegador (F12) para más detalles</li>
+                        </ul>
                     </div>
                 `;
             });
