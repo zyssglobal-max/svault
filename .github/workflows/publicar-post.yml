@@ -1,1 +1,144 @@
+name: Publicar Post desde Issue
 
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  publicar:
+    if: contains(github.event.issue.labels.*.name, 'post')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Guardar datos del issue en archivos
+        env:
+          TITLE: ${{ github.event.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          echo "$TITLE" > /tmp/title.txt
+          echo "$BODY" > /tmp/body.txt
+          echo "✅ Datos guardados"
+          echo "--- Título ---"
+          cat /tmp/title.txt
+          echo ""
+          echo "--- Body (primeros 500 chars) ---"
+          head -c 500 /tmp/body.txt
+          echo ""
+
+      - name: Procesar con Node.js
+        run: |
+          cat > process.js << 'EOF'
+          const fs = require('fs');
+          
+          try {
+            const title = fs.readFileSync('/tmp/title.txt', 'utf8').trim().replace(/^POST:\s*/i, '');
+            const body = fs.readFileSync('/tmp/body.txt', 'utf8');
+            
+            console.log('📝 Título:', title);
+            console.log('📄 Body length:', body.length);
+            
+            // Extraer campos del body (formato de formulario YAML)
+            function extractField(body, fieldName) {
+              const patterns = [
+                new RegExp('###\\s+' + fieldName + '\\s*\\r?\\n+([\\s\\S]*?)(?=\\r?\\n###|\\r?\\n\\r?\\n\\r?\\n|$)', 'i'),
+                new RegExp(fieldName + '\\s*\\r?\\n+([\\s\\S]*?)(?=\\r?\\n###|\\r?\\n\\r?\\n\\r?\\n|$)', 'i')
+              ];
+              
+              for (const pattern of patterns) {
+                const match = body.match(pattern);
+                if (match && match[1]) {
+                  return match[1].trim().replace(/^_No response_$/gm, '').trim();
+                }
+              }
+              return '';
+            }
+            
+            const categoria = extractField(body, 'Categoria') || 'GENERAL';
+            const fecha = extractField(body, 'Fecha') || new Date().toLocaleDateString('es-ES', { 
+              day: 'numeric', month: 'short', year: 'numeric' 
+            }).toUpperCase().replace('.', '');
+            const contenido = extractField(body, 'Contenido del Articulo');
+            
+            console.log('🏷️  Categoría:', categoria);
+            console.log('📅 Fecha:', fecha);
+            console.log('📝 Contenido length:', contenido.length);
+            
+            if (!title || !contenido) {
+              console.error('❌ Faltan datos. Título:', !!title, 'Contenido:', !!contenido);
+              process.exit(1);
+            }
+            
+            // Leer posts.json
+            let posts = [];
+            if (fs.existsSync('posts.json')) {
+              try {
+                const raw = fs.readFileSync('posts.json', 'utf8');
+                posts = JSON.parse(raw);
+                if (!Array.isArray(posts)) posts = [posts];
+                console.log('✅ Posts existentes:', posts.length);
+              } catch (e) {
+                console.log('⚠️  Error leyendo posts.json, creando nuevo:', e.message);
+                posts = [];
+              }
+            } else {
+              console.log('⚠️  posts.json no existe, creando nuevo');
+            }
+            
+            // Crear nuevo post
+            const nuevoPost = {
+              titulo: title,
+              categoria: categoria.toUpperCase(),
+              fecha: fecha,
+              contenido: contenido
+            };
+            
+            posts.unshift(nuevoPost);
+            
+            // Guardar
+            fs.writeFileSync('posts.json', JSON.stringify(posts, null, 2), 'utf8');
+            console.log('✅ Post agregado correctamente');
+            
+          } catch (error) {
+            console.error('❌ ERROR:', error.message);
+            console.error(error.stack);
+            process.exit(1);
+          }
+          EOF
+          
+          node process.js
+
+      - name: Verificar cambios
+        run: |
+          echo "📋 Contenido actualizado de posts.json:"
+          cat posts.json | head -c 500
+          echo ""
+          git status
+
+      - name: Commit y Push
+        run: |
+          git add posts.json
+          if git diff --staged --quiet; then
+            echo "⚠️  No hay cambios para commitear"
+          else
+            git commit -m "🚀 Nuevo post desde issue"
+            git push
+            echo "✅ Push exitoso"
+          fi
+
+      - name: Cerrar Issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close ${{ github.event.issue.number }} --comment "✅ **Post publicado exitosamente!** 🎉\n\nTu artículo ya está en vivo en el blog."
