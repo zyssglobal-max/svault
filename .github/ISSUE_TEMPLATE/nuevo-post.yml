@@ -1,1 +1,35 @@
-
+name: 🚀 Nuevo Artículo del Blog
+description: Agrega un nuevo post al blog de forma segura
+title: "POST: Escribe el título aquí"
+labels: ["post"]
+body:
+  - type: input
+    id: categoria
+    attributes:
+      label: Categoría
+      description: Ej: CIBERSEGURIDAD, PRIVACIDAD, TUTORIAL
+      placeholder: SEGURIDAD
+    validations:
+      required: true
+  - type: input
+    id: fecha
+    attributes:
+      label: Fecha
+      description: Ej: 25 OCT 2026
+      placeholder: 25 OCT 2026
+    validations:
+      required: true
+  - type: textarea
+    id: contenido
+    attributes:
+      label: Contenido del Artículo
+      description: Puedes usar etiquetas HTML básicas como <h3>, <p>, <strong>, <ul>, <li>
+      placeholder: |
+        <h3>Introducción</h3>
+        <p>Aquí va el texto de tu artículo...</p>
+        <ul>
+          <li>Punto importante 1</li>
+          <li>Punto importante 2</li>
+        </ul>
+    validations:
+      required: true
