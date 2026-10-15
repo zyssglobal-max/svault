@@ -1,1 +1,66 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog de Seguridad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        article {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        article h2 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        .meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🔒 Mi Blog de Seguridad</h1>
+        <p>Consejos para proteger tus datos</p>
+    </header>
+
+    <main id="posts"></main>
+
+    <script>
+        fetch('posts.json')
+            .then(response => response.json())
+            .then(posts => {
+                const container = document.getElementById('posts');
+                posts.forEach(post => {
+                    const article = document.createElement('article');
+                    article.innerHTML = `
+                        <h2>${post.titulo}</h2>
+                        <div class="meta">
+                            📅 ${post.fecha} | 📁 ${post.categoria}
+                        </div>
+                        <div class="content">${post.contenido}</div>
+                    `;
+                    container.appendChild(article);
+                });
+            });
+    </script>
+</body>
+</html>
