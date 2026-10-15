@@ -4,528 +4,304 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVault | Security Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Fuentes Profesionales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #0a0a0a;
-            --bg-soft: #0f0f0f;
-            --surface: #161616;
-            --surface-hover: #1c1c1c;
-            --accent: #00e0a4;
-            --accent-soft: rgba(0, 224, 164, 0.08);
-            --accent-glow: rgba(0, 224, 164, 0.15);
-            --text: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-dim: #666;
-            --border: rgba(255, 255, 255, 0.06);
-            --radius: 16px;
+            --bg: #09090b;       /* Negro casi puro */
+            --card-bg: #121214;  /* Gris muy oscuro */
+            --border: #27272a;   /* Bordes sutiles */
+            --accent: #00e0a4;   /* Tu verde neón */
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --glow: rgba(0, 224, 164, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Fondo con gradiente sutil */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0, 224, 164, 0.03) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(0, 224, 164, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Contenedor principal */
-        .wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 24px 100px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* HEADER */
+        /* --- HEADER & BUSCADOR --- */
         header {
-            text-align: center;
-            margin-bottom: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
         }
 
-        .logo {
-            display: inline-flex;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--accent), #00a37a);
-            border-radius: 12px;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px rgba(0, 224, 164, 0.25);
-        }
-
-        .logo-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: #0a0a0a;
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .logo-text {
+            color: #000;
+            font-weight: bold;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.5px;
         }
 
         h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            color: var(--text);
-            margin: 20px 0 12px;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
-        h1 span {
-            color: var(--accent);
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* BÚSQUEDA */
-        .search-container {
+        /* Barra de búsqueda PRO */
+        .search-wrapper {
             position: relative;
-            max-width: 500px;
-            margin: 40px auto 50px;
-        }
-
-        .search-box {
             width: 100%;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px 20px 16px 52px;
-            font-size: 1rem;
-            color: var(--text);
-            outline: none;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .search-box::placeholder {
-            color: var(--text-dim);
-        }
-
-        .search-box:focus {
-            border-color: rgba(0, 224, 164, 0.4);
-            background: var(--surface-hover);
-            box-shadow: 0 0 0 4px var(--accent-soft);
+            max-width: 320px;
         }
 
         .search-icon {
             position: absolute;
-            left: 18px;
+            left: 12px;
             top: 50%;
             transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            stroke: var(--text-dim);
-            stroke-width: 2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: stroke 0.3s ease;
+            color: var(--text-muted);
+            pointer-events: none;
         }
 
-        .search-box:focus + .search-icon {
-            stroke: var(--accent);
-        }
-
-        /* GRID DE ARTÍCULOS */
-        .posts-grid {
-            display: grid;
-            gap: 28px;
-        }
-
-        /* TARJETA DE ARTÍCULO */
-        .post-card {
-            background: var(--surface);
+        #searchInput {
+            width: 100%;
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: default;
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
+            border-radius: 99px; /* Redondo */
+            padding: 10px 16px 10px 40px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease;
         }
 
-        .post-card:hover {
-            border-color: rgba(0, 224, 164, 0.3);
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--glow);
+        }
+
+        #searchInput::placeholder { color: var(--text-muted); }
+
+        /* --- GRID DE ARTÍCULOS --- */
+        main {
+            padding: 40px 0;
+            min-height: 80vh;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
             transform: translateY(-4px);
-            box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(0, 224, 164, 0.1);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        .post-header {
-            margin-bottom: 20px;
-        }
-
-        .post-meta {
+        .card-meta {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-
-        .post-category {
+            margin-bottom: 12px;
             font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent);
-            background: var(--accent-soft);
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .post-date {
-            font-size: 0.875rem;
-            color: var(--text-dim);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-            margin: 0;
-            line-height: 1.3;
-            letter-spacing: -0.5px;
-        }
-
-        .post-content {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.75;
-        }
-
-        .post-content h3 {
-            color: var(--text);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 24px 0 10px;
-        }
-
-        .post-content p {
-            margin-bottom: 14px;
-        }
-
-        .post-content ul, .post-content ol {
-            margin: 12px 0 16px 20px;
-        }
-
-        .post-content li {
-            margin-bottom: 6px;
-        }
-
-        .post-content strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .post-content code {
-            background: var(--accent-soft);
-            color: var(--accent);
-            padding: 2px 8px;
-            border-radius: 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* ESTADOS */
-        .loading {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--text-dim);
+        .tag {
+            color: var(--accent);
+            background: rgba(0, 224, 164, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            margin: 0 auto 16px;
-            animation: spin 0.8s linear infinite;
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            color: #fff;
         }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .error {
-            text-align: center;
-            padding: 60px 30px;
-            background: var(--surface);
-            border: 1px solid rgba(255, 77, 106, 0.3);
-            border-radius: var(--radius);
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1;
         }
 
-        .error-icon {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 20px;
-            background: rgba(255, 77, 106, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Estilos dentro del contenido del post */
+        .card-content h3 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin: 16px 0 8px 0;
+            font-weight: 600;
         }
-
-        .error-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: #ff4d6a;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .error h3 {
-            font-size: 1.2rem;
-            color: var(--text);
+        
+        .card-content p { margin-bottom: 10px; }
+        
+        .card-content ul {
+            padding-left: 20px;
             margin-bottom: 10px;
         }
+        
+        .card-content li { margin-bottom: 4px; }
 
-        .error p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
+        .card-content code {
+            background: #27272a;
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
         }
 
-        .error-tips {
-            text-align: left;
-            background: var(--bg-soft);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
+        /* Estados vacíos */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
         }
-
-        .error-tips li {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            list-style: none;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .error-tips li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-family: 'JetBrains Mono', monospace;
             color: var(--accent);
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--text-dim);
-        }
-
-        .empty-state svg {
-            width: 64px;
-            height: 64px;
-            stroke: var(--text-dim);
-            stroke-width: 1.5;
-            fill: none;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .empty-state h3 {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 640px) {
-            .wrapper { padding: 40px 16px 80px; }
-            .post-card { padding: 24px; }
-            .post-title { font-size: 1.3rem; }
-            .search-box { padding: 14px 16px 14px 48px; font-size: 0.95rem; }
+        @media (max-width: 600px) {
+            .header-content { flex-direction: column; align-items: stretch; }
+            .search-wrapper { max-width: 100%; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <div class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/>
-                        <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/>
-                    </svg>
-                </div>
-                <span class="logo-text">SVault</span>
+    <header>
+        <div class="container header-content">
+            <div class="brand">
+                <div class="logo-icon">SV</div>
+                <h1>SecureVault Blog</h1>
             </div>
-            <h1>Blog de <span>Seguridad</span></h1>
-            <p class="subtitle">Guías prácticas para proteger tu vida digital en 2026</p>
-        </header>
-
-        <div class="search-container">
-            <input type="text" class="search-box" id="searchInput" placeholder="Buscar artículos...">
-            <svg class="search-icon" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="7"/>
-                <path d="m20 20-3.5-3.5"/>
-            </svg>
+            
+            <div class="search-wrapper">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" placeholder="Buscar artículos de seguridad...">
+            </div>
         </div>
+    </header>
 
-        <main id="posts-container" class="posts-grid">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Cargando artículos...</p>
-            </div>
-        </main>
-    </div>
+    <main class="container">
+        <div id="posts-container" class="grid">
+            <div class="loading">[ ~ ] Cargando base de conocimientos...</div>
+        </div>
+    </main>
 
     <script>
-        let allPosts = [];
-
-        function renderPosts(posts) {
-            const container = document.getElementById('posts-container');
-            
-            if (posts.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="7"/>
-                            <path d="m20 20-3.5-3.5"/>
-                        </svg>
-                        <h3>No se encontraron resultados</h3>
-                        <p>Intenta con otros términos de búsqueda</p>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = posts.map((post, index) => `
-                <article class="post-card" style="animation-delay: ${index * 0.08}s">
-                    <div class="post-header">
-                        <div class="post-meta">
-                            <span class="post-category">${post.categoria}</span>
-                            <span class="post-date">📅 ${post.fecha}</span>
-                        </div>
-                        <h2 class="post-title">${post.titulo}</h2>
-                    </div>
-                    <div class="post-content">${post.contenido}</div>
-                </article>
-            `).join('');
-        }
-
-        function filterPosts(query) {
-            if (!query.trim()) {
-                renderPosts(allPosts);
-                return;
-            }
-
-            const q = query.toLowerCase();
-            const filtered = allPosts.filter(post => 
-                post.titulo.toLowerCase().includes(q) ||
-                post.categoria.toLowerCase().includes(q) ||
-                post.contenido.toLowerCase().includes(q)
-            );
-
-            renderPosts(filtered);
-        }
-
-        // Event listener para búsqueda
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            filterPosts(e.target.value);
-        });
-
-        // Cargar posts
+        // Lógica simple y robusta
         fetch('./posts.json')
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
-                }
+                if (!response.ok) throw new Error("No se encontró posts.json");
                 return response.json();
             })
             .then(data => {
-                allPosts = Array.isArray(data) ? data : [data];
+                const container = document.getElementById('posts-container');
+                const posts = Array.isArray(data) ? data : [data];
                 
-                if (allPosts.length === 0) {
-                    document.getElementById('posts-container').innerHTML = `
-                        <div class="empty-state">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
-                            <h3>No hay artículos aún</h3>
-                            <p>Agrega contenido al archivo posts.json</p>
-                        </div>
-                    `;
-                    return;
+                // Función para renderizar
+                function renderPosts(filterText = '') {
+                    container.innerHTML = '';
+                    
+                    const filtered = posts.filter(post => {
+                        const searchStr = (post.titulo + ' ' + post.categoria + ' ' + post.contenido).toLowerCase();
+                        return searchStr.includes(filterText.toLowerCase());
+                    });
+
+                    if (filtered.length === 0) {
+                        container.innerHTML = `<div class="empty-state">No se encontraron resultados para "${filterText}"</div>`;
+                        return;
+                    }
+
+                    filtered.forEach(post => {
+                        const card = document.createElement('article');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <div class="card-meta">
+                                <span class="tag">${post.categoria}</span>
+                                <span>${post.fecha}</span>
+                            </div>
+                            <h2>${post.titulo}</h2>
+                            <div class="card-content">${post.contenido}</div>
+                        `;
+                        container.appendChild(card);
+                    });
                 }
 
-                renderPosts(allPosts);
+                // Render inicial
+                renderPosts();
+
+                // Evento de búsqueda
+                document.getElementById('searchInput').addEventListener('input', (e) => {
+                    renderPosts(e.target.value);
+                });
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error(error);
                 document.getElementById('posts-container').innerHTML = `
-                    <div class="error">
-                        <div class="error-icon">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="12" y1="8" x2="12" y2="12"/>
-                                <line x1="12" y1="16" x2="12.01" y2="16"/>
-                            </svg>
-                        </div>
-                        <h3>Error al cargar los artículos</h3>
-                        <p>${error.message}</p>
-                        <ul class="error-tips">
-                            <li>Verifica que el archivo se llame exactamente <strong>posts.json</strong></li>
-                            <li>Asegúrate de que esté en la misma carpeta que index.html</li>
-                            <li>El JSON debe empezar con <strong>[</strong> y terminar con <strong>]</strong></li>
-                            <li>Revisa la consola del navegador (F12) para más detalles</li>
-                        </ul>
-                    </div>
-                `;
+                    <div class="empty-state" style="color: #ff4d6a">
+                        <strong>Error de conexión</strong><br>
+                        Asegúrate de que el archivo <code>posts.json</code> existe y es válido.
+                    </div>`;
             });
     </script>
 </body>
