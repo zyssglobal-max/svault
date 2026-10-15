@@ -1,5 +1,11 @@
 [
   {
+    "titulo": "SVault 2026",
+    "fecha": "15 OCT 2026",
+    "categoria": "APPS-SEGURAS",
+    "contenido": "<h3>🚩 La app que te cuida</h3><p>Mi umilde recomendacion sin trabas ni escondrijos 'svault o SecureVault', 'proteccion 100% confiable' 🚩 'tu mejor aliada'. *********.</p><h3>🔍 no te espia</h3><ul><li>Te ayuda ('tu bobeda bloqueada totalmente en local & offline')</li><li>*****: <code>localStorage</code> en vez de <code>sitio expuesto online</code></li><li>******</li></ul><h3>✅ Qué hacer</h3><p>Mi recomendacion prueba nuestra app auditala.</p>"
+  },
+  {
     "titulo": "Cómo detectar un mensaje falso de tu banco en 2026",
     "fecha": "15 OCT 2026",
     "categoria": "ANTI-PHISHING",
@@ -9,7 +15,7 @@
     "titulo": "La verdad sobre las contraseñas que crees seguras",
     "fecha": "12 OCT 2026",
     "categoria": "CONTRASEÑAS",
-    "contenido": "<h3>❌ El mito de 'Tr4b@jo2026!'</h3><p>Los hackers no adivinan tu contraseña. Usan listas con los 100 millones de contraseñas más usadas del mundo. La tuya probablemente está en ella en menos de 1 segundo.</p><h3>✅ La solución real</h3><p>Usa un <strong>gestor de contraseñas</strong> como sVault, Bitwarden (gratis) o 1Password. Genera claves de 20 caracteres aleatorios y olvídate de recordarlas.</p><h3>🎯 Tu única tarea</h3><p>Proteger UNA sola contraseña: la maestra del gestor. Hazla larga (una frase de 4-5 palabras) y activa verificación en dos pasos en el gestor.</p>"
+    "contenido": "<h3>❌ El mito de 'Tr4b@jo2026!'</h3><p>Los hackers no adivinan tu contraseña. Usan listas con los 100 millones de contraseñas más usadas del mundo. La tuya probablemente está en ella en menos de 1 segundo.</p><h3>✅ La solución real</h3><p>Usa un <strong>gestor de contraseñas</strong> como SVault, Bitwarden (gratis) o 1Password. Genera claves de 20 caracteres aleatorios y olvídate de recordarlas.</p><h3>🎯 Tu única tarea</h3><p>Proteger UNA sola contraseña: la maestra del gestor. Hazla larga (una frase de 4-5 palabras) y activa verificación en dos pasos en el gestor.</p>"
   },
   {
     "titulo": "Verificación en dos pasos: tu muro impenetrable",
