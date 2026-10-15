@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVault | Security Blog</title>
-    <!-- Fuentes Profesionales -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #09090b;       /* Negro casi puro */
-            --card-bg: #121214;  /* Gris muy oscuro */
-            --border: #27272a;   /* Bordes sutiles */
-            --accent: #00e0a4;   /* Tu verde neón */
+            --bg: #09090b;
+            --card-bg: #121214;
+            --border: #27272a;
+            --accent: #00e0a4;
             --text-main: #f4f4f5;
             --text-muted: #a1a1aa;
             --glow: rgba(0, 224, 164, 0.15);
@@ -28,9 +27,29 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* --- HEADER & BUSCADOR --- */
+        /* --- FONDO ANIMADO SUTIL --- */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 224, 164, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 224, 164, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* --- HEADER CON ANIMACIÓN --- */
         header {
             position: sticky;
             top: 0;
@@ -39,12 +58,26 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             padding: 20px 0;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
 
         .header-content {
@@ -62,22 +95,34 @@
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--accent);
-            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #00b583);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #000;
             font-weight: bold;
             font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 0 20px var(--glow);
+            animation: logoPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--glow); }
+            50% { box-shadow: 0 0 30px rgba(0, 224, 164, 0.3); }
         }
 
         h1 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-main), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Barra de búsqueda PRO */
@@ -89,66 +134,118 @@
 
         .search-icon {
             position: absolute;
-            left: 12px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
             pointer-events: none;
+            transition: color 0.2s;
         }
 
         #searchInput {
             width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 99px; /* Redondo */
-            padding: 10px 16px 10px 40px;
+            border-radius: 99px;
+            padding: 11px 16px 11px 42px;
             color: var(--text-main);
             font-size: 0.9rem;
             outline: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         #searchInput:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 2px var(--glow);
+            box-shadow: 0 0 0 3px var(--glow);
+            transform: scale(1.02);
+        }
+
+        #searchInput:focus + .search-icon {
+            color: var(--accent);
         }
 
         #searchInput::placeholder { color: var(--text-muted); }
 
-        /* --- GRID DE ARTÍCULOS --- */
+        /* --- GRID DE ARTÍCULOS CON ANIMACIONES --- */
         main {
-            padding: 40px 0;
+            padding: 50px 0;
             min-height: 80vh;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: cardAppear 0.6s ease-out forwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Efecto de brillo que recorre la tarjeta */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(0, 224, 164, 0.05),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            animation: shine 1.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: 
+                0 20px 40px -15px rgba(0, 0, 0, 0.6),
+                0 0 30px -5px var(--glow);
         }
 
         .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-size: 0.75rem;
             font-family: 'JetBrains Mono', monospace;
             color: var(--text-muted);
@@ -159,17 +256,30 @@
         .tag {
             color: var(--accent);
             background: rgba(0, 224, 164, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
+            padding: 5px 10px;
+            border-radius: 6px;
             font-weight: 600;
+            border: 1px solid rgba(0, 224, 164, 0.2);
+            transition: all 0.3s;
+        }
+
+        .card:hover .tag {
+            background: rgba(0, 224, 164, 0.15);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--glow);
         }
 
         .card h2 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             line-height: 1.4;
             color: #fff;
+            transition: color 0.3s;
+        }
+
+        .card:hover h2 {
+            color: var(--accent);
         }
 
         .card-content {
@@ -178,54 +288,89 @@
             flex-grow: 1;
         }
 
-        /* Estilos dentro del contenido del post */
         .card-content h3 {
             color: var(--text-main);
             font-size: 1rem;
-            margin: 16px 0 8px 0;
+            margin: 18px 0 10px 0;
             font-weight: 600;
         }
         
-        .card-content p { margin-bottom: 10px; }
+        .card-content p { margin-bottom: 12px; }
         
         .card-content ul {
             padding-left: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
-        .card-content li { margin-bottom: 4px; }
+        .card-content li { 
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .card-content li::marker {
+            color: var(--accent);
+        }
 
         .card-content code {
             background: #27272a;
             color: var(--accent);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 3px 7px;
+            border-radius: 5px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85em;
+            border: 1px solid var(--border);
         }
 
         /* Estados vacíos */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             color: var(--text-muted);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .loading {
             text-align: center;
-            padding: 40px;
+            padding: 60px;
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent);
+            font-size: 1.1rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Animación de filtrado */
+        .card.filtering {
+            animation: filterOut 0.3s ease-out forwards;
+        }
+
+        @keyframes filterOut {
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
         }
 
         @media (max-width: 600px) {
             .header-content { flex-direction: column; align-items: stretch; }
             .search-wrapper { max-width: 100%; }
             .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+
+    <div class="bg-grid"></div>
 
     <header>
         <div class="container header-content">
@@ -248,7 +393,6 @@
     </main>
 
     <script>
-        // Lógica simple y robusta
         fetch('./posts.json')
             .then(response => {
                 if (!response.ok) throw new Error("No se encontró posts.json");
@@ -258,10 +402,7 @@
                 const container = document.getElementById('posts-container');
                 const posts = Array.isArray(data) ? data : [data];
                 
-                // Función para renderizar
                 function renderPosts(filterText = '') {
-                    container.innerHTML = '';
-                    
                     const filtered = posts.filter(post => {
                         const searchStr = (post.titulo + ' ' + post.categoria + ' ' + post.contenido).toLowerCase();
                         return searchStr.includes(filterText.toLowerCase());
@@ -272,9 +413,13 @@
                         return;
                     }
 
-                    filtered.forEach(post => {
+                    container.innerHTML = '';
+                    
+                    filtered.forEach((post, index) => {
                         const card = document.createElement('article');
                         card.className = 'card';
+                        card.style.animationDelay = `${index * 0.1}s`; // Efecto cascada
+                        
                         card.innerHTML = `
                             <div class="card-meta">
                                 <span class="tag">${post.categoria}</span>
@@ -287,12 +432,20 @@
                     });
                 }
 
-                // Render inicial
                 renderPosts();
 
-                // Evento de búsqueda
+                // Búsqueda con animación
+                let searchTimeout;
                 document.getElementById('searchInput').addEventListener('input', (e) => {
-                    renderPosts(e.target.value);
+                    clearTimeout(searchTimeout);
+                    
+                    // Animación de salida
+                    const cards = document.querySelectorAll('.card');
+                    cards.forEach(card => card.classList.add('filtering'));
+                    
+                    searchTimeout = setTimeout(() => {
+                        renderPosts(e.target.value);
+                    }, 300);
                 });
             })
             .catch(error => {
