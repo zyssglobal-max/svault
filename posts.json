@@ -1,5 +1,11 @@
 [
   {
+    "titulo": "Adception: la trampa publicitaria que instala malware vía Claude para Mac",
+    "fecha": "16 OCT 2026",
+    "categoria": "MALWARE-MAC",
+    "contenido": "<h3>🚩 El anuncio que parece de Bing</h3><p>Buscas 'Claude Mac' en Google y aparece un anuncio patrocinado que muestra el dominio <code>bing.com</code>. Parece legítimo. Haces clic y sin saberlo acabas en una cadena de redirecciones diseñada para infectar tu computadora.</p><h3>🔍 la trampa</h3><ul><li>Los atacantes usan una técnica llamada <code>Adception</code> que camufla anuncios maliciosos como si fueran de Bing</li><li>Al hacer clic, pasas por <code>redirecciones</code> que atraviesan Google, el sistema de seguimiento de Bing y un sitio WordPress vulnerado de un comercio sudamericano</li><li>Llegas a una <code>página falsa</code> que imita la web oficial de Claude y que solo funciona si vienes desde el anuncio</li><li>El botón de 'copiar comando' pega en tu Terminal un <code>comando malicioso</code> distinto al que ves en pantalla</li></ul><h3>✅ Qué hacer</h3><p>Nunca descargues apps desde anuncios patrocinados. Ve siempre a la web oficial del desarrollador escribiendo la dirección tú mismo. Si ya ejecutaste el comando, desconecta el equipo de internet y revisa con un antivirus.</p>"
+  },
+  {
     "titulo": "Falso bono mujer: la estafa que roba datos vía WhatsApp en Chile",
     "fecha": "16 OCT 2026",
     "categoria": "ESTAFAS-INTERNACIONAL",
