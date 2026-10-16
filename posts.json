@@ -1,5 +1,11 @@
 [
   {
+    "titulo": "Qué puede hacer un hacker con tu número de WhatsApp",
+    "fecha": "16 OCT 2026",
+    "categoria": "SEGURIDAD-MOVIL",
+    "contenido": "<h3>🚩 Tu número no es solo un número</h3><p>Es la llave que abre puertas que ni sabías que tenías desprotegidas. Un hacker no necesita hackear tu teléfono directamente: le basta con tu número para construir un perfil tuyo, cruzarlo con datos filtrados de otras plataformas y armar una trampa tan creíble que cualquiera caería.</p><h3>🔍 Cómo usan tu SIM</h3><ul><li><code>Smishing</code>: mensajes falsos de tu banco, paquetes que nunca pediste o 'soporte técnico'</li><li><code>SIM swapping</code>: clonan tu tarjeta y reciben tus códigos por SMS</li><li><code>Ingeniería social</code>: todo diseñado para que tú mismo entregues lo que ellos no pueden robar solos</li></ul><h3>✅ Qué hacer</h3><p>El mayor error que cometes a diario es usar el <strong>SMS como única forma de recuperar tus contraseñas</strong>. Un solo mensaje interceptado y pierdes el control de todo. Cambia tus cuentas críticas a <strong>apps de autenticación</strong> o <strong>llaves físicas</strong>. Revisa quién tiene tu número y para qué lo está usando.</p><h3>💀 La verdad incómoda</h3><p>La gente sigue pensando que esto les pasa a otros. Hasta que les pasa a ellos. La ignorancia digital en 2025 ya no es inocente, es una decisión.</p>"
+  },
+  {
     "titulo": "Eliminar Facebook de verdad: borrar la app no borra tu cuenta",
     "fecha": "16 OCT 2026",
     "categoria": "PRIVACIDAD-REDES",
