@@ -1,5 +1,11 @@
 [
   {
+    "titulo": "Eliminar Facebook de verdad: borrar la app no borra tu cuenta",
+    "fecha": "16 OCT 2026",
+    "categoria": "PRIVACIDAD-REDES",
+    "contenido": "<h3>🚩 El error que casi todos cometen</h3><p>Desinstalar la aplicación de Facebook de tu teléfono NO elimina tu cuenta ni tus datos. Tu perfil sigue activo, tus fotos siguen en los servidores y Meta sigue rastreándote. Para desaparecer de verdad, hay que eliminar la cuenta desde dentro.</p><h3>🔍 Antes de empezar</h3><ul><li>Descarga una <code>copia de tus datos</code>: fotos, publicaciones y mensajes desaparecerán para siempre</li><li>Ten a mano tu <code>contraseña</code>, la vas a necesitar al final</li></ul><h3>✅ Cómo eliminar tu cuenta paso a paso</h3><ol><li>En tu navegador, inicia sesión en <code>accountscenter.facebook.com</code></li><li>Ve a <strong>Administrar cuentas</strong></li><li>Selecciona <strong>Administrar</strong> junto a la cuenta que quieras eliminar</li><li>Selecciona <strong>Desactivación o eliminación</strong></li><li>Selecciona <strong>Eliminar cuenta</strong> y luego <strong>Continuar</strong></li><li>Sigue las instrucciones, introduce tu contraseña y confirma</li></ol><h3>⚠️ Ojo con el periodo de gracia</h3><p>Tu cuenta entra en un <strong>periodo de gracia de 30 días</strong>. Si vuelves a iniciar sesión durante ese tiempo, la eliminación se cancela. Pasados los 30 días, la eliminación es permanente.</p>"
+  },
+  {
     "titulo": "YuanKong RAT: el troyano que vacía tus cuentas desde la pantalla",
     "fecha": "16 OCT 2026",
     "categoria": "MALWARE-ANDROID",
