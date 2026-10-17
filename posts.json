@@ -1,5 +1,11 @@
 [
   {
+    "titulo": "Briar: la app que funciona sin internet y nadie puede espiar",
+    "fecha": "17 OCT 2026",
+    "categoria": "APPS-SEGURAS",
+    "contenido": "<h3>🚩 La app que te cuida</h3><p>Mi humilde recomendación sin trabas ni escondrijos: 'Briar', 'comunicación sin servidores' 🚩 'tu mejor aliada'. Funciona por Wi-Fi, Bluetooth, discos removibles, correo y más. Principalmente: <strong>sin internet</strong>.</p><h3>🔍 no te espía</h3><ul><li>Te ayuda ('P2P por Bluetooth o Wi-Fi local, o red Tor si hay internet')</li><li>Tus Datos: <code>directo entre dispositivos</code> en vez de <code>servidor central</code></li><li>Mensajes por <code>tarjetas SD o USB</code> entregados físicamente, sin pasar por ninguna nube</li><li>Briar Mailbox: un Android extra actúa como buzón para recoger mensajes cuando vuelvas a estar en línea</li><li>free, gratis, descentralizada. Solo Android.</li></ul><h3>✅ Qué hacer</h3><p>Mi recomendación prueba la app, auditala, compártela. Ideal para entornos sin internet o con censura. Ten en cuenta: sin llamadas ni videollamadas, y en modo mantenimiento desde julio de 2026 (solo correcciones de seguridad).</p>"
+  },
+  {
     "titulo": "Qué puede hacer un hacker con tu número de WhatsApp",
     "fecha": "16 OCT 2026",
     "categoria": "SEGURIDAD-MOVIL",
