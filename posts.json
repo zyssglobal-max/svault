@@ -1,4 +1,10 @@
-[
+[ 
+  {
+    "titulo": "La estafa de la llamada perdida: por qué nunca debes devolver el número",
+    "fecha": "18 OCT 2026",
+    "categoria": "ESTAFAS-TELEFONICAS",
+    "contenido": "<h3>🚩 El gancho perfecto</h3><p>Suena el teléfono, dura un segundo y cuelgan. O aparece una llamada perdida de un número desconocido, a veces con prefijo internacional. La curiosidad te gana y devuelves la llamada. Ahí empieza el problema.</p><h3>🔍 la trampa</h3><ul><li>Es una estafa de <code>wangiri</code> ('llamada de un timbre'): el número pertenece a un servicio de tarifación especial</li><li>Al devolver la llamada, te cobran <code>tarifas premium</code> por minuto, a veces varios dólares</li><li>También pueden usar la llamada para confirmar que tu número está activo y venderlo a otros estafadores</li><li>En el peor caso, graban tu voz para usarla en <code>fraudes con IA</code> o suplantación</li></ul><h3>✅ Qué hacer</h3><p>Nunca devuelvas llamadas de números desconocidos, sobre todo con prefijos raros (+23, +37, +44, +88). Si te preocupa perder una llamada importante, busca el número en internet antes de responder. Bloquea el número y repórtalo a tu operador. Y desconfía de cualquier llamada que te pida datos, códigos o dinero.</p>"
+  },
   {
     "titulo": "Briar: la app que funciona sin internet y nadie puede espiar",
     "fecha": "17 OCT 2026",
