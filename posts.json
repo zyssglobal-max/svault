@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "La nueva estafa por WhatsApp: te piden videollamada y te roban el código de verificación",
+    "fecha": "18 OCT 2026",
+    "categoria": "ESTAFAS-WHATSAPP",
+    "contenido": "<h3>🚩 El gancho perfecto</h3><p>Publicas un artículo en venta (por ejemplo, un auto) y recibes un mensaje. El comprador dice tener una discapacidad, no poder moverse, y pide una <strong>videollamada</strong> para 'conocer a quien recibirá a su esposa'. La conversación parece normal hasta que pide que actives 'compartir pantalla' por una supuesta incompatibilidad entre iPhone y Xiaomi.</p><h3>🔍 la trampa</h3><ul><li>Al compartir pantalla, el estafador <strong>ve en tiempo real las notificaciones</strong> que llegan a tu teléfono</li><li>Mientras tanto, intenta registrar tu cuenta de WhatsApp en otro dispositivo</li><li>WhatsApp envía un <code>código de verificación</code> que aparece como notificación en tu pantalla</li><li>El estafador lo lee sin que se lo dictes, accede a tu cuenta y luego pide dinero a tus contactos</li></ul><h3>✅ Qué hacer</h3><p>Nunca compartas pantalla con desconocidos. Si alguien te pide un código que llegó a tu teléfono, es estafa. Si ya compartiste pantalla, revisa los dispositivos vinculados a tu WhatsApp y cierra sesión en todos los que no reconozcas.</p>"
+  },
+  {
     "titulo": "La estafa de la llamada perdida: por qué nunca debes devolver el número",
     "fecha": "18 OCT 2026",
     "categoria": "ESTAFAS-TELEFONICAS",
