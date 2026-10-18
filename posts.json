@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Alerta Ledger: correos falsos de 'actualización de firmware' roban tu frase semilla",
+    "fecha": "17 OCT 2026",
+    "categoria": "CRIPTO-PHISHING",
+    "contenido": "<h3>🚩 El correo que parece oficial</h3><p>SlowMist emitió una advertencia: circulan correos de phishing que se hacen pasar por actualizaciones de firmware de Ledger. Aprovechan el reciente incidente de la cadena de suministro de Ledger (dispositivos vendidos por el distribuidor CryptoBilis con spyware, pérdidas de 86 millones de dólares) para ganar credibilidad.</p><h3>🔍 la trampa</h3><ul><li>El correo afirma que debes 'protegerte contra spyware en Malasia' y te dirige a una <code>página falsa</code></li><li>La página imita el proceso de verificación de Ledger e incluye botones de 'verificar autenticidad' y 'actualizar ahora'</li><li>Si introduces tu <code>frase semilla de 24 palabras</code>, los atacantes vacían tu billetera</li></ul><h3>✅ Qué hacer</h3><p>Ledger NUNCA te pedirá tu frase semilla por correo ni por web. No hagas clic en enlaces de 'actualización'. Verifica siempre desde la app oficial de Ledger Live. Si ya introdujiste tu frase, transfiere tus fondos a una billetera nueva de inmediato.</p>"
+  },
+  {
     "titulo": "La nueva estafa por WhatsApp: te piden videollamada y te roban el código de verificación",
     "fecha": "18 OCT 2026",
     "categoria": "ESTAFAS-WHATSAPP",
