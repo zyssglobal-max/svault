@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Reino Unido alerta: llamadas robot te piden agregar un número a WhatsApp",
+    "fecha": "16 OCT 2026",
+    "categoria": "ESTAFAS-TELEFONICAS",
+    "contenido": "<h3>🚩 La llamada que cuelga sola</h3><p>Recibes una llamada de un número desconocido. Una voz robótica ofrece un 'trabajo a tiempo parcial' y te pide que agregues su número a WhatsApp antes de colgar. La Oficina del Comisionado de Información (ICO) del Reino Unido recibió más de 3,600 quejas solo en septiembre, la cifra más alta en cinco años.</p><h3>🔍 la trampa</h3><ul><li>Al agregar el número, recibes un mensaje de 'oportunidad flexible a tiempo parcial'</li><li>El objetivo puede ser <code>reclutamiento falso</code> (mulas de dinero) o simple <code>phishing</code> para confirmar que tu número está activo</li><li>Los números activos se revenden en la dark web a otros estafadores</li><li>La ICO cree que los responsables operan desde el extranjero y que <strong>millones</strong> han recibido estas llamadas</li></ul><h3>✅ Qué hacer</h3><p>Ignora llamadas de números desconocidos que piden agregar contactos. No agregues números que te llamen ofreciendo trabajo 'flexible'. Bloquea y reporta. Si ya agregaste, no aceptes ofertas de empleo por WhatsApp de desconocidos.</p>"
+  },
+  {
     "titulo": "Alerta Ledger: correos falsos de 'actualización de firmware' roban tu frase semilla",
     "fecha": "17 OCT 2026",
     "categoria": "CRIPTO-PHISHING",
