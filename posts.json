@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Filtración en Dinamarca: 8,8 millones de personas expuestas por un error de acceso",
+    "fecha": "19 OCT 2026",
+    "categoria": "BRECHAS-DATOS",
+    "contenido": "<h3>🚩 El registro civil más grande de Dinamarca, comprometido</h3><p>El Registro Central de Personas (CPR) de Dinamarca está notificando a aproximadamente 8,8 millones de personas que sus datos personales fueron robados. El ataque no fue un hackeo sofisticado: un atacante explotó el acceso legítimo que una empresa privada tenía al sistema para extraer información masivamente.</p><h3>🔍 la trampa</h3><ul><li>La empresa <code>Pays ApS</code> tenía permiso legal para consultar el CPR, pero un individuo abusó de ese acceso</li><li>El atacante creó dos programas (presuntamente generados con IA) para realizar <code>14 millones de consultas automatizadas</code> al sistema</li><li>Los datos robados incluyen <code>nombres, direcciones y números de CPR</code> (el equivalente al número de Seguridad Social)</li><li>El acceso no autorizado duró aproximadamente <code>21 días</code>, desde el 10 de septiembre hasta que las autoridades lo detectaron</li></ul><h3>✅ Qué hacer</h3><p>Si resides en Dinamarca o tienes registros allí, verifica si tus datos están en la filtración. Las autoridades recomiendan monitorear cuentas bancarias e informes de crédito. Las empresas deben revisar quién tiene acceso a sus sistemas y monitorear consultas inusuales: este caso demuestra que un socio de confianza puede ser el punto más débil.</p>"
+  },
+  {
     "titulo": "Elimina o más bien 😄 Exorciza las amenazas y blinda tu privacidad digital",
     "fecha": "18 OCT 2026",
     "categoria": "PRIVACIDAD-DIGITAL",
