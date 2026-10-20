@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Meta confirma brecha en GitHub: código fuente y datos de 1.500 empleados expuestos",
+    "fecha": "19 OCT 2026",
+    "categoria": "BRECHAS-DATOS",
+    "contenido": "<h3>🚩 El gigante tecnológico admite el fallo</h3><p>Meta confirmó que hackers lograron acceder a partes de sus repositorios de código en GitHub tras robar las credenciales de un empleado. El incidente expuso código fuente de productos y datos personales de aproximadamente 1.500 personas, en su mayoría empleados de Meta en Estados Unidos.</p><h3>🔍 la trampa</h3><ul><li>El ataque comenzó con el <code>robo de credenciales</code> de un solo empleado; Meta no reveló cómo se filtraron</li><li>El 99% de lo sustraído fue <code>código fuente</code> de productos; el 1% restante fueron datos personales</li><li>Meta asegura que la información personal <strong>nunca debió estar en GitHub</strong> y que fue subida por error, violando sus políticas internas</li><li>Gran parte de esos datos parecían personales pero eran <code>sintéticos o anonimizados</code>, lo que dificulta distinguir lo real de lo falso</li></ul><h3>✅ Qué hacer</h3><p>Si eres empleado o exempleado de Meta y recibiste una notificación, mantente alerta ante posibles intentos de phishing dirigidos. Las empresas deben recordar que GitHub es un repositorio de código, no un lugar para datos personales: revisa qué información sensible está expuesta en tus repositorios y limita los permisos de acceso al mínimo necesario.</p>"
+  },
+  {
     "titulo": "Filtración en Dinamarca: 8,8 millones de personas expuestas por un error de acceso",
     "fecha": "19 OCT 2026",
     "categoria": "BRECHAS-DATOS",
