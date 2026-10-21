@@ -10,7 +10,7 @@ Ubicación: Almacenamiento de la app
 Elementos: enlaces · notas · TOTP & +
 ```
 
-![Preview](https://img.shields.io/badge/👁️-Vista%20previa-green)
+![Preview](https://img.shields.io/badge/👁️-preview-login-green)
 
 <img src="assets/img/preview-login.jpg" alt="n-tree-app" width="100%"/>
 <img src="assets/img/preview-tools.jpg" alt="n-tree-app" width="100%"/>
