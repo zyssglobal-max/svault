@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Alerta crítica en PHP: la vulnerabilidad 'PHP2Shell' permite tomar el control de millones de webs",
+    "fecha": "21 OCT 2026",
+    "categoria": "VULNERABILIDADES-CRITICAS",
+    "contenido": "<h3>🚩 El fallo que puso en alerta a medio internet</h3><p>El equipo de seguridad de PHP liberó una actualización de emergencia para corregir dos vulnerabilidades críticas, identificadas como <code>CVE-2026-109618</code> y <code>CVE-2026-109619</code>, que permiten a un atacante ejecutar código arbitrario en el servidor sin necesidad de autenticarse. La gravedad es máxima: <strong>CVSS 9.2 sobre 10</strong>.</p><h3>🔍 la trampa</h3><ul><li>Afecta a <strong>todas las versiones de PHP desde la 5.0 en adelante</strong>, lo que incluye una enorme porción de los sitios web del mundo (se estima que PHP impulsa cerca del 70% de la web)</li><li>El fallo está relacionado con la <code>gestión de memoria</code> al procesar peticiones multipart, y fue descubierto con ayuda de inteligencia artificial tras más de una década oculto</li><li>El nombre 'PHP2Shell' hace referencia a la posibilidad de obtener una <code>shell remota</code> en el servidor vulnerable</li><li>La alerta se adelantó porque los identificadores CVE y detalles técnicos se filtraron antes de la fecha de divulgación coordinada</li></ul><h3>✅ Qué hacer</h3><p>Actualiza PHP <strong>inmediatamente</strong> a una de las versiones corregidas: <code>8.5.12</code>, <code>8.4.27</code>, <code>8.3.36</code> o <code>8.2.35</code>. Si usas una versión anterior a la 8.2, ya no recibe soporte ni parches: migra cuanto antes. Si no puedes aplicar el parche de inmediato, los CERT europeos recomiendan <strong>desconectar temporalmente el sitio web de internet</strong> hasta que puedas actualizar.</p>"
+  },
+  {
     "titulo": "Meta confirma brecha en GitHub: código fuente y datos de 1.500 empleados expuestos",
     "fecha": "19 OCT 2026",
     "categoria": "BRECHAS-DATOS",
