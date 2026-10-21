@@ -16,5 +16,8 @@ Elementos: enlaces · notas · TOTP & +
 ![Preview](https://img.shields.io/badge/👁️-PREVIEW.tools-green)
 <img src="assets/img/preview-tools.jpg" alt="svault-app" width="100%"/>
 
+![Preview](https://img.shields.io/badge/👁️-PREVIEW.note-green)
+<img src="assets/img/preview-notas.jpg" alt="svault-app" width="100%"/>
+
 ![Preview](https://img.shields.io/badge/👁️-PREVIEW.calendar-green)
 <img src="assets/img/preview-calendario.jpg" alt="svault-app" width="100%"/>
