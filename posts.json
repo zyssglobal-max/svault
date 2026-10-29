@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Ransomware paraliza hospital universitario en Nuevo México: cirugías suspendidas y ambulancias desviadas",
+    "fecha": "29 OCT 2026",
+    "categoria": "RANSOMWARE-SALUD",
+    "contenido": "<h3>🚩 El hospital que dejó de atender</h3><p>El Centro de Ciencias de la Salud de la Universidad de Nuevo México (UNM HSC) sufrió un ciberataque que obligó a suspender temporalmente nuevas admisiones de pacientes, desviar ambulancias a hospitales cercanos y cancelar cirugías ambulatorias y citas programadas. Las clases en las cuatro escuelas de ciencias de la salud también fueron canceladas.</p><h3>🔍 la trampa</h3><ul><li>El grupo de ransomware <code>Byod</code> se atribuyó la autoría, afirmando haber comprometido aproximadamente <code>36.000 sistemas</code> de la red universitaria y hospitalaria</li><li>Según el grupo, accedieron a <code>Active Directory, políticas de grupo, Microsoft Entra, dos bases de datos Oracle</code>, datos de estudiantes y empleados (incluidos números de Seguro Social), nóminas y expedientes médicos electrónicos</li><li>Inicialmente usaron los datos robados para presionar a la universidad, pero luego dijeron que darían la clave de descifrado gratis y ofrecerían hasta <code>2.500 dólares</code> a cada paciente afectado, aunque retendrían los datos robados</li></ul><h3>✅ Qué hacer</h3><p>UNM Health confirmó que sus sistemas críticos volvieron a funcionar el 27 de octubre y que no hay evidencia de que los atacantes accedieran a los servidores centrales. La lección para otras instituciones de salud: segmentar la red, revisar accesos de terceros y tener un plan de respuesta que permita desviar pacientes sin colapsar la operación.</p>"
+  },
+  {
     "titulo": "Alerta crítica en PHP: la vulnerabilidad 'PHP2Shell' permite tomar el control de millones de webs",
     "fecha": "21 OCT 2026",
     "categoria": "VULNERABILIDADES-CRITICAS",
