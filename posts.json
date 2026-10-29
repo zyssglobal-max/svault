@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Detenido en Mérida el hacker que expuso datos de salud de 18.000 pacientes del Servicio Extremeño de Salud",
+    "fecha": "29 OCT 2026",
+    "categoria": "CIBERDELINCUENCIA",
+    "contenido": "<h3>🚩 El ataque que terminó en detención</h3><p>La Policía Nacional de España detuvo en Mérida al presunto autor de un ciberataque que accedió a los datos sanitarios de más de <code>18.000 pacientes</code> del Servicio Extremeño de Salud (SES). El ataque se dirigió al portal online CSOnline mediante un acceso indebido, automatizado y masivo desde un servidor virtual anónimo alojado en el extranjero.</p><h3>🔍 la trampa</h3><ul><li>El ciberdelincuente accedió a información de <code>18.416 pacientes</code> con más de <code>340.000 registros</code> sobre su salud</li><li>Los datos estaban organizados por año de nacimiento y código de identificación, incluyendo historial médico con enfermedades, diagnósticos y tratamientos</li><li>El objetivo era <code>vender los datos en foros ilícitos</code></li><li>El propio SES denunció la intrusión ante la Policía Nacional, aportando un informe técnico</li></ul><h3>✅ Qué hacer</h3><p>Durante el registro en el domicilio del detenido, los agentes recuperaron las bases de datos sustraídas y evitaron su venta. La Policía no descarta que la operación permita esclarecer otros ataques. Para las instituciones sanitarias: auditar accesos a portales online, implementar límites de consultas por usuario y monitorear patrones de acceso masivo automatizado.</p>"
+  },
+  {
     "titulo": "Corea del Sur alerta: oleada de hackeos golpea bancos, aseguradoras y cripto exchanges",
     "fecha": "29 OCT 2026",
     "categoria": "CIBERATAQUES-FINANZAS",
