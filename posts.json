@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Corea del Sur alerta: oleada de hackeos golpea bancos, aseguradoras y cripto exchanges",
+    "fecha": "29 OCT 2026",
+    "categoria": "CIBERATAQUES-FINANZAS",
+    "contenido": "<h3>🚩 El sector financiero bajo asedio</h3><p>Una ola de ciberataques se extiende por el sector financiero de Corea del Sur. Daishin Securities reportó una filtración que afecta a aproximadamente <code>38.000 clientes</code>. El exchange de criptomonedas Bithumb y Mirae Asset Global Investments también fueron atacados. Los hackeos a bancos comerciales, que comenzaron a finales del mes pasado, se han extendido a bancos de ahorro, instituciones financieras secundarias, aseguradoras, casas de valores y el sector cripto en solo un mes.</p><h3>🔍 la trampa</h3><ul><li>Las autoridades identificaron una gran cantidad de <code>direcciones IP vinculadas a Corea del Norte</code> entre las utilizadas en los ataques</li><li>El 21 de octubre se registraron más de <code>4,4 millones de accesos de tipo escaneo</code> para explorar vulnerabilidades de sistemas</li><li>El gobernador del Servicio de Supervisión Financiera advirtió que la <code>IA facilita la explotación de brechas de seguridad</code> y los ataques simultáneos</li></ul><h3>✅ Qué hacer</h3><p>Las autoridades instan a las empresas a reforzar sus verificaciones de seguridad y proteger mejor sus activos de TI. Para los usuarios: monitorear movimientos inusuales en cuentas bancarias y de valores, y desconfiar de correos o mensajes que suplanten a entidades financieras.</p>"
+  },
+  {
     "titulo": "Ransomware paraliza hospital universitario en Nuevo México: cirugías suspendidas y ambulancias desviadas",
     "fecha": "29 OCT 2026",
     "categoria": "RANSOMWARE-SALUD",
