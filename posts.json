@@ -1,5 +1,11 @@
 [ 
   {
+    "titulo": "Alerta crítica en APT: fallo en Debian y Ubuntu permite ejecutar código como root",
+    "fecha": "05 NOV 2026",
+    "categoria": "VULNERABILIDADES-CRITICAS",
+    "contenido": "<h3>🚩 El gestor de paquetes se convierte en la puerta de entrada</h3><p>Se ha detectado una vulnerabilidad de alta gravedad en <strong>APT</strong>, el gestor de paquetes utilizado por Debian, Ubuntu y sus derivados. El fallo, identificado como <code>CVE-2026-109518</code> y con una puntuación <strong>CVSS 7.7</strong>, permite a un atacante en una posición de intermediario (man-in-the-middle) manipular las actualizaciones de software y ejecutar código malicioso con privilegios de <code>root</code>.</p><h3>🔍 la trampa</h3><ul><li>El fallo reside en cómo APT maneja las <code>redirecciones HTTP</code> y la reanudación de descargas fallidas</li><li>Bajo ciertas condiciones, APT puede fusionar dos descargas diferentes tras una redirección, permitiendo al atacante <strong>reemplazar un paquete después de que haya sido verificado</strong></li><li>Como los paquetes de Debian ejecutan scripts de instalación con privilegios de root, el atacante obtiene el <strong>control total del sistema</strong></li><li>La explotación requiere que la configuración <code>Acquire::Retries</code> esté activada (valor distinto de cero), lo cual es <strong>predeterminado en Debian 12 y Ubuntu 22.04 en adelante</strong></li><li>Los sistemas que usan <code>HTTPS</code> para sus repositorios no son vulnerables, ya que TLS protege la comunicación contra la manipulación necesaria</li></ul><h3>✅ Qué hacer</h3><p>Actualiza APT <strong>inmediatamente</strong>. Debian ya publicó parches: actualiza a <code>apt 2.6.2</code> en Debian 12 (Bookworm) o <code>3.0.4</code> en Debian 13 (Trixie). En Ubuntu, las versiones corregidas incluyen <code>3.2.1ubuntu0.1</code> (24.04 LTS) y <code>2.4.15ubuntu0.1</code> (22.04 LTS), entre otras. Si no puedes parchear de inmediato, revisa que tus repositorios usen <code>https://</code> en lugar de <code>http://</code>. No se ha reportado explotación activa en el mundo real, pero la ventana de riesgo es significativa.</p>"
+  },
+  {
     "titulo": "Detenido en Mérida el hacker que expuso datos de salud de 18.000 pacientes del Servicio Extremeño de Salud",
     "fecha": "29 OCT 2026",
     "categoria": "CIBERDELINCUENCIA",
