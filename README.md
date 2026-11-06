@@ -32,3 +32,6 @@ Elementos: enlaces · notas · TOTP & +
 
 ![Preview](https://img.shields.io/badge/👁️-PREVIEW.sch4nn-green)
 <img src="assets/img/preview-sch4nn.jpg" alt="svault-app" width="100%"/>
+
+![Preview](https://img.shields.io/badge/👁️-PREVIEW.3udg€t-green)
+<img src="assets/img/preview-3udget.jpg" alt="svault-app" width="100%"/>
